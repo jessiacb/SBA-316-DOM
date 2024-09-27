@@ -54,6 +54,16 @@ habitForm.addEventListener('submit', function(event) {
                 }, 500);
             });
         });
+
+        console.log(li.parentNode);
+
+        const fragment = document.createDocumentFragment();
+        const templateHabit = li.cloneNode(true);
+        fragment.appendChild(templateHabit);
+        habitList.appendChild(fragment);
+    });
+
+    
     </script>
 </body>
 </html>
