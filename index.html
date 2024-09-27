@@ -31,4 +31,11 @@
 habitForm.addEventListener('submit', function(event) {
             event.preventDefault(); // prevent form from reloading page
 
+            const newHabit = habitInput.value.trim();
+            if (newHabit === '') {
+                alert('Please enter a habit.');
+                return;
+            }
+            // validate input
+
             
