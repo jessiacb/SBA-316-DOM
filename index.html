@@ -38,4 +38,12 @@ habitForm.addEventListener('submit', function(event) {
             }
             // validate input
 
+            const li = document.createElement('li');
+            li.className = 'habit';
+            li.innerHTML = `${newHabit} <button class="complete-btn">Complete</button>`;
+            habitList.appendChild(li);
+            // new habit item
+
+            habitInput.value = '';
+
             
