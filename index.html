@@ -63,7 +63,10 @@ habitForm.addEventListener('submit', function(event) {
         habitList.appendChild(fragment);
     });
 
-    
+    function markAllComplete() {
+        const allHabits = document.querySelectorAll('.habit');
+        allHabits.forEach(habit => habit.classList.add('completed'));
+    }
     </script>
 </body>
 </html>
