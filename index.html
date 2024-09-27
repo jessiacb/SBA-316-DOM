@@ -48,8 +48,10 @@ habitForm.addEventListener('submit', function(event) {
             habitInput.value = '';
 
             li.querySelector('.complete-btn').addEventListener('click', function() {
-                
+                setTimeout(() => {
                 li.classList.toggle('completed'); 
+                li.setAttribute('data-status', li.classList.contains('completed') ? 'completed' : 'incomplete');
+                }, 500);
             });
         });
     </script>
