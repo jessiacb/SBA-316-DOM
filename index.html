@@ -46,4 +46,10 @@ habitForm.addEventListener('submit', function(event) {
 
             habitInput.value = '';
 
-            
+            li.querySelector('.complete-btn').addEventListener('click', function() {
+                li.classList.toggle('completed'); 
+            });
+        });
+    </script>
+</body>
+</html>
