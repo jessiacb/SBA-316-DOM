@@ -25,10 +25,10 @@
         const habitForm = document.getElementById('habit-form');
         const habitInput = document.getElementById('habit-input');
         const habitList = document.querySelector('#habit-list');
-// cache elements
+        // cache elements
 
-// event listener for form submission
-habitForm.addEventListener('submit', function(event) {
+        // event listener for form submission
+        habitForm.addEventListener('submit', function(event) {
             event.preventDefault(); // prevent form from reloading page
 
             const newHabit = habitInput.value.trim();
@@ -49,24 +49,26 @@ habitForm.addEventListener('submit', function(event) {
 
             li.querySelector('.complete-btn').addEventListener('click', function() {
                 setTimeout(() => {
-                li.classList.toggle('completed'); 
-                li.setAttribute('data-status', li.classList.contains('completed') ? 'completed' : 'incomplete');
+                    li.classList.toggle('completed'); 
+                    li.setAttribute('data-status', li.classList.contains('completed') ? 'completed' : 'incomplete');
                 }, 500);
             });
+
+            // log parent of new habit item
+            console.log(li.parentNode);
+
+            // DocumentFragment to clone new habit and append to list
+            const fragment = document.createDocumentFragment();
+            const templateHabit = li.cloneNode(true); 
+            fragment.appendChild(templateHabit); 
+            habitList.appendChild(fragment); 
         });
 
-        console.log(li.parentNode);
-
-        const fragment = document.createDocumentFragment();
-        const templateHabit = li.cloneNode(true);
-        fragment.appendChild(templateHabit);
-        habitList.appendChild(fragment);
-    });
-
-    function markAllComplete() {
-        const allHabits = document.querySelectorAll('.habit');
-        allHabits.forEach(habit => habit.classList.add('completed'));
-    }
+        // mark all habits as complete
+        function markAllComplete() {
+            const allHabits = document.querySelectorAll('.habit');
+            allHabits.forEach(habit => habit.classList.add('completed'));
+        }
     </script>
 </body>
 </html>
