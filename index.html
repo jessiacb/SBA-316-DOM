@@ -41,12 +41,14 @@ habitForm.addEventListener('submit', function(event) {
             const li = document.createElement('li');
             li.className = 'habit';
             li.innerHTML = `${newHabit} <button class="complete-btn">Complete</button>`;
+            li.setAttribute('data-status', 'incomplete');
             habitList.appendChild(li);
             // new habit item
 
             habitInput.value = '';
 
             li.querySelector('.complete-btn').addEventListener('click', function() {
+                
                 li.classList.toggle('completed'); 
             });
         });
